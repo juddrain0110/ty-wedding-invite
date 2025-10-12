@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import './Gallery.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import gallery1 from './assets/image/gallery1.jpg';
 import gallery2 from './assets/image/gallery2.jpg';
@@ -33,7 +38,8 @@ const Gallery = () => {
       <div className="gallery-content">
         <h2 className="gallery-title">GALLERY</h2>
 
-        <div className="gallery-grid">
+        {/* 🖥️ PC/Tablet Layout */}
+        <div className="gallery-grid desktop-view">
           <div className="page-one">
             <img src={gallery1} alt="gallery1" className="gallery-image" onClick={() => openModal(0)} />
             <img src={gallery2} alt="gallery2" className="gallery-image" onClick={() => openModal(1)} />
@@ -49,8 +55,30 @@ const Gallery = () => {
             </div>
           </div>
         </div>
+
+        {/* 📱 모바일 Swiper 슬라이드 */}
+        <div className="mobile-view">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            pagination={{ clickable: true }}
+            spaceBetween={15}
+            slidesPerView={1}
+          >
+            {images.map((img, index) => (
+              <SwiperSlide key={index}>
+                <img
+                  src={img}
+                  alt={`gallery${index + 1}`}
+                  className="gallery-image swiper-image"
+                  onClick={() => openModal(index)}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
 
+      {/* 모달 */}
       {currentIndex !== null && (
         <div className="modal-overlay" onClick={closeModal}>
           <button className="nav-button prev" onClick={prevImage}>‹</button>
