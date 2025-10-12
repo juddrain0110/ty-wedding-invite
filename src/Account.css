@@ -119,21 +119,3 @@
   80% { opacity: 1; }
   100% { opacity: 0; }
 }
-
-.thanks-image-container {
-  width: 100%;
-  padding: 2rem 0;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  background-color: #fffefc; /* 배경색 유지 원할 경우 */
-  overflow-x: hidden;
-}
-
-.thanks-image {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;  /* 중요: 이미지 잘림 방지 */
-}

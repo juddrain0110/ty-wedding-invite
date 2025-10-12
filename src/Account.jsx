@@ -98,10 +98,6 @@ const Account = () => {
       {/* 복사 완료 메시지 */}
       {copied && <div className="copy-toast">복사되었습니다: {copied}</div>}
 
-      {/* ✅ 감사 인사 이미지 */}
-      <div className="thanks-image-container">
-        <img src={thanksImage} alt="감사 인사" className="thanks-image" />
-      </div>
     </div>
   );
 };

@@ -38,11 +38,15 @@ function App() {
         <Location />
       </section>
 
-      {/* 계좌 안내 섹션  */}
+      {/* 계좌 안내 섹션 */}
       <section id="account">
         <Account />
       </section>
 
+      {/* 감사 인사 섹션 */}
+      <section id="thanks">
+        <Thanks />
+      </section>
     </div>
   );
 }
