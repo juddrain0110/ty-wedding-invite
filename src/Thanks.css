@@ -2,22 +2,23 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* 아래쪽 잘리게 */
   background-color: #fff;
+  text-align: center; /* 중앙 정렬 */
+  overflow: visible; /* ✅ 잘림 방지 */
 }
 
-/* 위쪽만 보이도록 */
 .thanks-image {
   width: 100%;
-  height: 400px; /* 보이는 높이 조절 가능 */
-  object-fit: cover; /* 비율 유지하며 채움 */
-  object-position: top; /* 위쪽 기준으로 크롭 */
+  height: auto; /* ✅ 세로 비율 자동 */
+  object-fit: contain; /* ✅ 전체 이미지 표시 */
   display: block;
+  margin: 0 auto; /* 중앙 정렬 */
 }
 
-/* 모바일 환경에서 조금 낮게 조정 */
+/* 모바일에서도 동일하게 비율 유지 */
 @media (max-width: 480px) {
   .thanks-image {
-    height: 280px;
+    width: 100%;
+    height: auto;
   }
 }
