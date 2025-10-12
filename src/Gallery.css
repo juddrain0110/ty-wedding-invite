@@ -1,0 +1,37 @@
+/* src/Gallery.css */
+
+.gallery-container {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.gallery-icon {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.gallery-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+.gallery-thumb {
+  width: 100%;
+  max-width: 160px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-thumb:hover {
+  transform: scale(1.05);
+}

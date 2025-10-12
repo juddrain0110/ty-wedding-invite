@@ -3,6 +3,7 @@
 import './App.css'
 import Intro from './Intro'
 import Invitation from './Invitation'
+import Gallery from './Gallery'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
 
       <Intro />
       <Invitation />
+      <Gallery />
 
       {/* ✅ 본문 섹션 */}
       <div className="bg-pink-100 w-full max-w-md px-4 py-8 rounded-xl shadow mt-6">
