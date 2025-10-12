@@ -9,21 +9,22 @@
 
 /* 상단 하트 및 타이틀 */
 .account-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 1.8rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: min(7vw, 6vh);
+  color: #2b2b2b;
+  margin-bottom: 1.6rem;
+  letter-spacing: 1px;
 }
 
 .heart {
-  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  font-size: clamp(1.6rem, 3.6vw, 2rem); /* ↓ 살짝 축소 */
   color: #d44d4d;
   margin-bottom: 0.5rem;
 }
 
 .account-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-size: clamp(2rem, 5vw, 2.6rem); /* 유지 */
   color: #2b2b2b;
   letter-spacing: 1px;
   margin: 0;
@@ -31,8 +32,8 @@
 
 /* 안내문 */
 .account-message {
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
-  line-height: 1.8;
+  font-size: clamp(0.85rem, 1.8vw, 1rem); /* ↓ 축소 */
+  line-height: 1.7;
   margin-bottom: 2rem;
   color: #444;
 }
@@ -41,7 +42,7 @@
 .account-divider {
   border: none;
   border-top: 1px solid #ddd;
-  margin: 1.5rem auto 2rem;
+  margin: 1.3rem auto 1.8rem;
   width: 80%;
 }
 
@@ -51,18 +52,18 @@
   justify-content: center;
   align-items: flex-start;
   gap: 1rem;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
 
 /* 라벨 */
 .account-label {
   font-weight: bold;
-  padding: 0.4rem 0.9rem;
+  padding: 0.35rem 0.8rem;
   border-radius: 20px;
   color: #fff;
   min-width: 60px;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem); /* ↓ 축소 */
 }
 
 .groom {
@@ -76,13 +77,13 @@
 /* 계좌 리스트 */
 .account-list {
   text-align: left;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem); /* ↓ 축소 */
   line-height: 1.6;
   font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
 }
 
 .account-list p {
-  margin: 0.3rem 0;
+  margin: 0.25rem 0;
 }
 
 /* 계좌번호 복사 스타일 */
@@ -106,9 +107,9 @@
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  padding: 0.6rem 1rem;
+  padding: 0.5rem 0.9rem; /* ↓ 축소 */
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 0.85rem; /* ↓ 축소 */
   animation: fadeOut 1.5s ease forwards;
   z-index: 999;
 }
@@ -128,22 +129,10 @@
 }
 
 .thanks-image {
-  width: auto;         /* ✅ 원본 비율 유지 */
-  max-width: 100%;     /* ✅ 화면보다 크면 축소 */
-  height: auto;
-  display: inline-block;
-  object-fit: none;    /* ✅ 잘림 방지 */
-  object-position: center top;
-}
-
-/* 반응형 */
-@media (max-width: 480px) {
-  .account-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .account-list {
-    text-align: center;
-  }
+  width: 100%;         /* ✅ 가로를 꽉 채움 */
+  height: auto;        /* ✅ 세로 비율 자동 유지 */
+  display: block;      /* ✅ 가운데 정렬 이슈 제거 */
+  object-fit: contain; /* ✅ 이미지 전체가 보이게 */
+  object-position: center center; /* ✅ 가운데 정렬 */
+  border-radius: 0;    /* 필요 시 둥근 모서리 제거 */
 }

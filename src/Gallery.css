@@ -20,9 +20,9 @@
 /* 제목 */
 .gallery-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-size: min(7vw, 6vh); /* ✅ 추가: 세로 길이도 반응하도록 */
   color: #2b2b2b;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6rem; /* 여백 살짝 조정 */
   letter-spacing: 1px;
 }
 

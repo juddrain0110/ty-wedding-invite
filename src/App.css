@@ -26,7 +26,7 @@ body {
 
 /* 앱 전체 컨테이너 */
 .app-container {
-  max-width: 720px;
+  max-width: 1220px;
   margin: 0 auto;
   background-color: #fff;
   padding: 2rem 1.5rem;
@@ -76,8 +76,8 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* ✅ 위쪽 정렬 */
   padding: 3rem 1rem;
-  min-height: 100vh; /* 화면 기준으로 센터 고정 */
+  min-height: auto;            /* ✅ 고정 높이 제거 */
   box-sizing: border-box;
 }

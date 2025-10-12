@@ -37,7 +37,6 @@ const Gallery = () => {
     <div className="gallery-container">
       <div className="gallery-content">
         <h2 className="gallery-title">GALLERY</h2>
-        <h3 className="gallery-subtitle">우리의 소중한 순간들</h3>
 
         {/* 🖥️ PC/Tablet Layout */}
         <div className="gallery-grid desktop-view">

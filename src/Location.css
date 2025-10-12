@@ -20,9 +20,9 @@
 /* 타이틀 */
 .location-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-size: min(7vw, 6vh); /* ✅ 추가: 세로 길이도 반응하도록 */
   color: #2b2b2b;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6rem; /* 여백 살짝 조정 */
   letter-spacing: 1px;
 }
 
@@ -45,7 +45,7 @@
 .location-address p {
   margin: 0.3rem 0;
   font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: min(1.6vw, 1.8vh);
   color: #333;
   font-weight: 500;
 }
@@ -53,6 +53,7 @@
 /* 교통 안내 섹션 */
 .transport-section {
   margin-top: 3rem;
+  font-size: min(1.6vw, 1.8vh);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -78,7 +79,7 @@
 
 .transport-text h4 {
   margin: 0;
-  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  font-size: min(1.6vw, 1.8vh);
   font-family: 'Pretendard', sans-serif;
   font-weight: 700;
   color: #222;
@@ -114,7 +115,7 @@
 
 @media (max-width: 480px) {
   .location-title {
-    font-size: clamp(1.8rem, 5vw, 2rem);
+    font-size: min(1.6vw, 1.8vh);
   }
 
   .location-map-image {
