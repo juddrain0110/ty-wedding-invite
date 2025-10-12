@@ -1,0 +1,40 @@
+/* src/Location.css */
+
+.location-container {
+  padding: 4rem 1rem;
+  text-align: center;
+  background-color: #fffafc;
+}
+
+.location-icon {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.location-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.location-map-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.kakao-map-box {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+.location-address p {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+}
