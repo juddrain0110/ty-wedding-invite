@@ -72,6 +72,10 @@ section {
 }
 
 .intro-container,
+.account-container,
+.calendar-container,
+.gallery-container,
+.location-container,
 .invitation-container {
   display: flex;
   flex-direction: column;

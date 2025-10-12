@@ -120,19 +120,3 @@
   100% { opacity: 0; }
 }
 
-/* ✅ 감사 인사 이미지 */
-.thanks-image-container {
-  width: 100%;
-  margin-top: 3rem;
-  padding: 0;
-  text-align: center;
-}
-
-.thanks-image {
-  width: 100%;         /* ✅ 가로를 꽉 채움 */
-  height: auto;        /* ✅ 세로 비율 자동 유지 */
-  display: block;      /* ✅ 가운데 정렬 이슈 제거 */
-  object-fit: contain; /* ✅ 이미지 전체가 보이게 */
-  object-position: center center; /* ✅ 가운데 정렬 */
-  border-radius: 0;    /* 필요 시 둥근 모서리 제거 */
-}
