@@ -17,7 +17,7 @@
   padding: 0 1rem;
 }
 
-/* 타이틀 */
+/* 제목 */
 .gallery-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2rem, 5vw, 2.8rem);
@@ -26,7 +26,15 @@
   letter-spacing: 1px;
 }
 
-/* 공통 이미지 */
+/* 부제 */
+.gallery-subtitle {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: clamp(1rem, 2.3vw, 1.3rem);
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+/* 이미지 공통 */
 .gallery-image {
   width: 100%;
   height: 100%;
@@ -34,13 +42,14 @@
   background-color: #fff;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .gallery-image:hover {
   transform: scale(1.02);
 }
 
-/* ---------- PAGE ONE ---------- */
+/* 첫 번째 페이지 */
 .page-one {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -52,56 +61,67 @@
   grid-column: 1 / span 2;
 }
 
-/* ---------- PAGE TWO ---------- */
+/* 두 번째 페이지 */
 .page-two {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
 
-/* 상단 4번 전체폭 */
 .page-two .wide {
   width: 100%;
 }
 
-/* 하단 영역 (5, 6, 7) */
+/* 5,6,7 영역 */
 .gallery-layout-2 {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 왼쪽 5, 오른쪽 6+7 */
-  grid-template-rows: 1fr 1fr;   /* 오른쪽 2행 */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 0.8rem;
 }
 
-/* 왼쪽 5번: 세로 긴 비율, 전체 다 보이게 */
+/* 5번 */
 .gallery-image.tall {
   grid-row: span 2;
-  object-fit: contain; /* ✅ 자르지 않음 */
+  object-fit: contain;
   aspect-ratio: 3 / 4;
 }
 
-/* 오른쪽 6,7: 살짝 크롭 (가운데 기준) */
+/* 6,7번 */
 .gallery-image.cropped {
-  object-fit: cover; /* ✅ 가운데 잘림 허용 */
+  object-fit: cover;
   object-position: center;
   aspect-ratio: 4 / 3;
 }
 
-/* 반응형 */
-@media (max-width: 768px) {
-  .page-one,
-  .gallery-layout-2 {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-
-  .gallery-image.tall,
-  .gallery-image.cropped {
-    aspect-ratio: auto;
-    height: auto;
-  }
+/* Swiper 이미지 */
+.swiper-image {
+  object-fit: contain;
+  max-height: 75vh;
 }
 
-/* ---------- 모달 ---------- */
+/* Swiper 전용 영역 */
+.mobile-view {
+  display: none;
+  width: 100%;
+}
+
+/* 데스크탑에서는 그리드만 보이게 */
+.desktop-view {
+  display: block;
+}
+
+/* Swiper Pagination */
+.swiper-pagination-bullet {
+  background: #999 !important;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background: #333 !important;
+}
+
+/* 모달 */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -114,7 +134,6 @@
   align-items: center;
   z-index: 1000;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .modal-content {
@@ -132,10 +151,8 @@
   border-radius: 10px;
   object-fit: contain;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
 }
 
-/* 좌우 이동 버튼 */
 .nav-button {
   position: absolute;
   top: 50%;
@@ -148,7 +165,6 @@
   cursor: pointer;
   border-radius: 50%;
   z-index: 1100;
-  transition: background 0.3s ease;
 }
 
 .nav-button:hover {
@@ -163,15 +179,31 @@
   right: 2%;
 }
 
-/* 닫기 시 배경 클릭 */
-.modal-overlay:active {
-  cursor: pointer;
-}
-
 /* 반응형 */
 @media (max-width: 768px) {
-  .nav-button {
-    font-size: 2rem;
-    padding: 0.4rem 0.8rem;
+  .desktop-view {
+    display: none;
+  }
+
+  .mobile-view {
+    display: block;
+  }
+
+  .gallery-content {
+    max-width: 100%;
+  }
+
+  .gallery-title {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+  }
+
+  .gallery-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+  }
+
+  .swiper-image {
+    border-radius: 10px;
+    width: 100%;
+    object-fit: contain;
   }
 }

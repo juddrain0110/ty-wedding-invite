@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import './Gallery.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import gallery1 from './assets/image/gallery1.jpg';
 import gallery2 from './assets/image/gallery2.jpg';
@@ -19,12 +24,10 @@ const Gallery = () => {
 
   const openModal = (index) => setCurrentIndex(index);
   const closeModal = () => setCurrentIndex(null);
-
   const prevImage = (e) => {
-    e.stopPropagation(); // 배경 클릭 방지
+    e.stopPropagation();
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
-
   const nextImage = (e) => {
     e.stopPropagation();
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -34,27 +37,49 @@ const Gallery = () => {
     <div className="gallery-container">
       <div className="gallery-content">
         <h2 className="gallery-title">GALLERY</h2>
+        <h3 className="gallery-subtitle">우리의 소중한 순간들</h3>
 
-        {/* 첫 번째 그룹 */}
-        <div className="gallery-grid page-one">
-          <img src={gallery1} alt="gallery1" className="gallery-image" onClick={() => openModal(0)} />
-          <img src={gallery2} alt="gallery2" className="gallery-image" onClick={() => openModal(1)} />
-          <img src={gallery3} alt="gallery3" className="gallery-image wide" onClick={() => openModal(2)} />
+        {/* 🖥️ PC/Tablet Layout */}
+        <div className="gallery-grid desktop-view">
+          <div className="page-one">
+            <img src={gallery1} alt="gallery1" className="gallery-image" onClick={() => openModal(0)} />
+            <img src={gallery2} alt="gallery2" className="gallery-image" onClick={() => openModal(1)} />
+            <img src={gallery3} alt="gallery3" className="gallery-image wide" onClick={() => openModal(2)} />
+          </div>
+
+          <div className="page-two">
+            <img src={gallery4} alt="gallery4" className="gallery-image wide" onClick={() => openModal(3)} />
+            <div className="gallery-layout-2">
+              <img src={gallery5} alt="gallery5" className="gallery-image tall" onClick={() => openModal(4)} />
+              <img src={gallery6} alt="gallery6" className="gallery-image cropped" onClick={() => openModal(5)} />
+              <img src={gallery7} alt="gallery7" className="gallery-image cropped" onClick={() => openModal(6)} />
+            </div>
+          </div>
         </div>
 
-        {/* 두 번째 그룹 */}
-        <div className="gallery-grid page-two">
-          <img src={gallery4} alt="gallery4" className="gallery-image wide" onClick={() => openModal(3)} />
-
-          <div className="gallery-layout-2">
-            <img src={gallery5} alt="gallery5" className="gallery-image tall" onClick={() => openModal(4)} />
-            <img src={gallery6} alt="gallery6" className="gallery-image cropped" onClick={() => openModal(5)} />
-            <img src={gallery7} alt="gallery7" className="gallery-image cropped" onClick={() => openModal(6)} />
-          </div>
+        {/* 📱 모바일 Swiper 슬라이드 */}
+        <div className="mobile-view">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            pagination={{ clickable: true }}
+            spaceBetween={15}
+            slidesPerView={1}
+          >
+            {images.map((img, index) => (
+              <SwiperSlide key={index}>
+                <img
+                  src={img}
+                  alt={`gallery${index + 1}`}
+                  className="gallery-image swiper-image"
+                  onClick={() => openModal(index)}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
 
-      {/* ✅ 모달 */}
+      {/* 모달 */}
       {currentIndex !== null && (
         <div className="modal-overlay" onClick={closeModal}>
           <button className="nav-button prev" onClick={prevImage}>‹</button>
