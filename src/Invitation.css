@@ -26,9 +26,9 @@
 /* Parisienne 적용된 메인 타이틀 */
 .invitation-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.4rem;
+  font-size: clamp(2rem, 5vw, 2.8rem); /* 반응형 폰트 */
   color: #2b2b2b;
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.6rem; /* 여백 살짝 조정 */
   letter-spacing: 1px;
 }
 

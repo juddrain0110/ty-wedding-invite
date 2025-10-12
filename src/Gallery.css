@@ -1,37 +1,177 @@
-/* src/Gallery.css */
-
 .gallery-container {
-  padding: 3rem 1rem;
-  text-align: center;
-}
-
-.gallery-icon {
-  width: 60px;
-  margin-bottom: 1rem;
-}
-
-.gallery-title {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 1rem;
-  justify-items: center;
-}
-
-.gallery-thumb {
   width: 100%;
-  max-width: 160px;
-  border-radius: 8px;
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  background-color: #fffafc;
+}
+
+.gallery-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 520px;
+  width: 95%;
+  padding: 0 1rem;
+}
+
+/* 타이틀 */
+.gallery-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: #2b2b2b;
+  margin-bottom: 1.6rem;
+  letter-spacing: 1px;
+}
+
+/* 공통 이미지 */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
-.gallery-thumb:hover {
-  transform: scale(1.05);
+.gallery-image:hover {
+  transform: scale(1.02);
+}
+
+/* ---------- PAGE ONE ---------- */
+.page-one {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.page-one .wide {
+  grid-column: 1 / span 2;
+}
+
+/* ---------- PAGE TWO ---------- */
+.page-two {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* 상단 4번 전체폭 */
+.page-two .wide {
+  width: 100%;
+}
+
+/* 하단 영역 (5, 6, 7) */
+.gallery-layout-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 왼쪽 5, 오른쪽 6+7 */
+  grid-template-rows: 1fr 1fr;   /* 오른쪽 2행 */
+  gap: 0.8rem;
+}
+
+/* 왼쪽 5번: 세로 긴 비율, 전체 다 보이게 */
+.gallery-image.tall {
+  grid-row: span 2;
+  object-fit: contain; /* ✅ 자르지 않음 */
+  aspect-ratio: 3 / 4;
+}
+
+/* 오른쪽 6,7: 살짝 크롭 (가운데 기준) */
+.gallery-image.cropped {
+  object-fit: cover; /* ✅ 가운데 잘림 허용 */
+  object-position: center;
+  aspect-ratio: 4 / 3;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .page-one,
+  .gallery-layout-2 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .gallery-image.tall,
+  .gallery-image.cropped {
+    aspect-ratio: auto;
+    height: auto;
+  }
+}
+
+/* ---------- 모달 ---------- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 95%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+/* 좌우 이동 버튼 */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1100;
+  transition: background 0.3s ease;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.nav-button.prev {
+  left: 2%;
+}
+
+.nav-button.next {
+  right: 2%;
+}
+
+/* 닫기 시 배경 클릭 */
+.modal-overlay:active {
+  cursor: pointer;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .nav-button {
+    font-size: 2rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
