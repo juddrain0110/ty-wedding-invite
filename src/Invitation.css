@@ -1,0 +1,47 @@
+/* src/Invitation.css */
+.invitation-container {
+  background-size: cover;
+  background-position: center;
+  padding: 3rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.invitation-icon {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.invitation-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.invitation-subtitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.invitation-message {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.invitation-parents {
+  background-color: #fbe6e9;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: #333;
+}

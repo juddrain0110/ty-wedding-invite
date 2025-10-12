@@ -2,12 +2,14 @@
 
 import './App.css'
 import Intro from './Intro'
+import Invitation from './Invitation'
 
 function App() {
   return (
     <div className="flex flex-col items-center bg-pink-50 min-h-screen text-center">
-      {/* ✅ 인트로 섹션 */}
+
       <Intro />
+      <Invitation />
 
       {/* ✅ 본문 섹션 */}
       <div className="bg-pink-100 w-full max-w-md px-4 py-8 rounded-xl shadow mt-6">
