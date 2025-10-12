@@ -13,7 +13,8 @@
   flex-direction: column;
   align-items: center;
   max-width: 480px;
-  width: 100%;
+  width: 90%;
+  padding: 0 1rem;
 }
 
 /* 아이콘 */
@@ -34,15 +35,16 @@
 /* 서브 타이틀 (한글) */
 .invitation-subtitle {
   font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.3vw, 1.3rem);
   color: #444;
   margin-bottom: 2rem;
 }
 
 /* 본문 문구 */
 .invitation-message {
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  line-height: 1.8;
+  word-break: keep-all;
   color: #444;
   line-height: 1.8;
   margin-bottom: 2rem;
