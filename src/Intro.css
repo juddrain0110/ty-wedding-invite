@@ -5,20 +5,100 @@
   justify-content: center;
   padding: 2rem 1rem;
   text-align: center;
+  box-sizing: border-box;
 }
 
+/* 이름 영역 - Pretendard 폰트, 세로 배치 */
+.intro-names-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pretendard', sans-serif;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.intro-name {
+  font-size: 2rem;         /* 크기 확장 */
+  font-weight: 600;
+  line-height: 0.2;
+}
+
+.intro-divider {
+  font-size: 1.0rem;       /* 구분선 크기 */
+  font-weight: 400;
+  color: #999;
+  margin: 0.4rem 0;
+}
+
+/* 이미지 */
 .intro-image {
   width: 100%;
   max-width: 500px;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  display: block;
 }
 
+/* 날짜 및 장소 */
 .intro-text {
-  margin-top: 1.5rem;
-  font-size: 1.2rem;
-  line-height: 1.6;
+  margin-top: 1.2rem;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  text-align: center;
   color: #333;
+  line-height: 1.5;
+}
+
+.intro-date {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+.intro-location {
+  font-size: 1.3em;
   font-weight: 500;
+  color: #555;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .intro-name {
+    font-size: 1.7rem;
+  }
+
+  .intro-divider {
+    font-size: 1.4rem;
+  }
+
+  .intro-image {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-name {
+    font-size: 1.5rem;
+  }
+
+  .intro-divider {
+    font-size: 1.2rem;
+  }
+
+  .intro-image {
+    max-width: 360px;
+  }
+
+  .intro-date {
+    font-size: 1rem;
+  }
+
+  .intro-location {
+    font-size: 1rem;
+  }
 }

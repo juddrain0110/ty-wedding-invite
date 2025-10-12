@@ -1,14 +1,14 @@
 // src/Invitation.jsx
 import React from 'react';
 import './Invitation.css';
-import iconImage from './assets/image/icon.png';
 
 const Invitation = () => {
   return (
     <div className="invitation-container">
       <div className="invitation-content">
-        <img src={iconImage} alt="icon" className="invitation-icon" />
+
         <h2 className="invitation-title">INVITATION</h2>
+
         <h3 className="invitation-subtitle">소중한 분들을 초대합니다.</h3>
 
         <div className="invitation-message">
@@ -27,7 +27,7 @@ const Invitation = () => {
             <strong>김상조 · 조원자</strong> 의 장남 <strong>김태훈</strong>
           </p>
           <p>
-            <strong>이순규 · 서연순</strong> 의 장녀 <strong>이어진</strong>
+            <strong>이순규 · 서연순</strong> 의 장녀 <strong>이여진</strong>
           </p>
         </div>
       </div>

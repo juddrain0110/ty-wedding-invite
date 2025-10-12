@@ -1,6 +1,7 @@
 /* 폰트 임포트 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
 
 /* 전역 설정 */
 body {
@@ -68,4 +69,15 @@ section {
   body {
     font-size: 15px;
   }
+}
+
+.intro-container,
+.invitation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  min-height: 100vh; /* 화면 기준으로 센터 고정 */
+  box-sizing: border-box;
 }
