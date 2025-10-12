@@ -43,10 +43,6 @@ function App() {
         <Account />
       </section>
 
-      {/* 감사 인사 섹션 */}
-      <section id="thanks">
-        <Thanks />
-      </section>
     </div>
   );
 }

@@ -1,17 +1,23 @@
 .thanks-container {
   width: 100%;
-  min-height: 100vh;
-  background-color: #fffafc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 1rem;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 아래쪽 잘리게 */
+  background-color: #fff;
 }
 
+/* 위쪽만 보이도록 */
 .thanks-image {
   width: 100%;
-  max-width: 600px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 400px; /* 보이는 높이 조절 가능 */
+  object-fit: cover; /* 비율 유지하며 채움 */
+  object-position: top; /* 위쪽 기준으로 크롭 */
+  display: block;
+}
+
+/* 모바일 환경에서 조금 낮게 조정 */
+@media (max-width: 480px) {
+  .thanks-image {
+    height: 280px;
+  }
 }

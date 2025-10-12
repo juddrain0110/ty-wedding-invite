@@ -1,62 +1,68 @@
 .account-container {
+  width: 100%;
   background-color: #fffefc;
-  padding: 4rem 1.5rem;
+  padding: clamp(3rem, 6vw, 4rem) 1.5rem;
   text-align: center;
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
   color: #333;
 }
 
-/* 상단 하트와 제목 */
+/* 상단 하트 및 타이틀 */
 .account-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
 }
 
 .heart {
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
   color: #d44d4d;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
-.account-header h2 {
-  font-size: 1.4rem;
-  font-weight: 600;
+.account-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  color: #2b2b2b;
+  letter-spacing: 1px;
+  margin: 0;
 }
 
 /* 안내문 */
 .account-message {
-  font-size: 0.95rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   line-height: 1.8;
   margin-bottom: 2rem;
+  color: #444;
 }
 
 /* 구분선 */
 .account-divider {
   border: none;
   border-top: 1px solid #ddd;
-  margin: 1.5rem auto;
+  margin: 1.5rem auto 2rem;
   width: 80%;
 }
 
-/* 섹션 전체 */
+/* 계좌 섹션 */
 .account-section {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
   flex-wrap: wrap;
 }
 
-/* 왼쪽 라벨 */
+/* 라벨 */
 .account-label {
   font-weight: bold;
   padding: 0.4rem 0.9rem;
   border-radius: 20px;
-  color: white;
+  color: #fff;
   min-width: 60px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .groom {
@@ -67,18 +73,19 @@
   background-color: #f7a3b5;
 }
 
-/* 오른쪽 계좌 리스트 */
+/* 계좌 리스트 */
 .account-list {
   text-align: left;
-  font-size: 0.95rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   line-height: 1.6;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
 }
 
 .account-list p {
-  margin: 0.2rem 0;
+  margin: 0.3rem 0;
 }
 
-/* 계좌번호 클릭 가능 스타일 */
+/* 계좌번호 복사 스타일 */
 .account-number {
   font-weight: bold;
   color: #000;
@@ -91,22 +98,52 @@
   color: #d44d4d;
 }
 
-/* 복사 완료 토스트 메시지 */
+/* 복사 완료 토스트 */
 .copy-toast {
   position: fixed;
   bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.8);
-  color: white;
+  color: #fff;
   padding: 0.6rem 1rem;
   border-radius: 8px;
   font-size: 0.9rem;
   animation: fadeOut 1.5s ease forwards;
+  z-index: 999;
 }
 
 @keyframes fadeOut {
   0% { opacity: 1; }
   80% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+/* ✅ 감사 인사 이미지 */
+.thanks-image-container {
+  width: 100%;
+  margin-top: 3rem;
+  padding: 0;
+  text-align: center;
+}
+
+.thanks-image {
+  width: auto;         /* ✅ 원본 비율 유지 */
+  max-width: 100%;     /* ✅ 화면보다 크면 축소 */
+  height: auto;
+  display: inline-block;
+  object-fit: none;    /* ✅ 잘림 방지 */
+  object-position: center top;
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .account-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .account-list {
+    text-align: center;
+  }
 }

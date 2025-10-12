@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Account.css";
+import thanksImage from "./assets/image/thanks.png"; // ✅ 감사 이미지 추가
 
 const Account = () => {
   const [copied, setCopied] = useState("");
@@ -8,7 +9,7 @@ const Account = () => {
   const handleCopy = (text) => {
     navigator.clipboard.writeText(text);
     setCopied(text);
-    setTimeout(() => setCopied(""), 1500); // 1.5초 후 메시지 사라짐
+    setTimeout(() => setCopied(""), 1500);
   };
 
   return (
@@ -16,7 +17,7 @@ const Account = () => {
       {/* 상단 하트와 제목 */}
       <div className="account-header">
         <div className="heart">❤</div>
-        <h2>마음 전하실 곳</h2>
+        <h2 className="account-title">마음 전하실 곳</h2>
       </div>
 
       {/* 안내 문구 */}
@@ -95,7 +96,12 @@ const Account = () => {
       </div>
 
       {/* 복사 완료 메시지 */}
-      {copied && <div className="copy-toast">📋 {copied}</div>}
+      {copied && <div className="copy-toast">복사되었습니다: {copied}</div>}
+
+      {/* ✅ 감사 인사 이미지 */}
+      <div className="thanks-image-container">
+        <img src={thanksImage} alt="감사 인사" className="thanks-image" />
+      </div>
     </div>
   );
 };
