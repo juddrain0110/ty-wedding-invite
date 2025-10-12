@@ -95,7 +95,7 @@ const Account = () => {
       </div>
 
       {/* 복사 완료 메시지 */}
-      {copied && <div className="copy-toast">📋 {copied} 복사됨!</div>}
+      {copied && <div className="copy-toast">📋 {copied}</div>}
     </div>
   );
 };
