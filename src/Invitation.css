@@ -26,7 +26,7 @@
 /* Parisienne 적용된 메인 타이틀 */
 .invitation-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 5vw, 2.8rem); /* 반응형 폰트 */
+  font-size: min(6vw, 5vh); /* ✅ 추가: 세로 길이도 반응하도록 */
   color: #2b2b2b;
   margin-bottom: 1.6rem; /* 여백 살짝 조정 */
   letter-spacing: 1px;
@@ -35,14 +35,14 @@
 /* 서브 타이틀 (한글) */
 .invitation-subtitle {
   font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-  font-size: clamp(1rem, 2.3vw, 1.3rem);
+  font-size: min(2.3vw, 2.5vh); /* ✅ 세로 비율 기반으로 축소 */
   color: #444;
   margin-bottom: 2rem;
 }
 
 /* 본문 문구 */
 .invitation-message {
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-size: min(1.6vw, 1.8vh); /* ✅ 내용도 세로길이에 따라 축소 */
   line-height: 1.8;
   word-break: keep-all;
   color: #444;
@@ -59,7 +59,7 @@
   max-width: 400px;
   border-radius: 10px;
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 1.5rem;
+  font-size: min(1.8vw, 2vh); 
   font-weight: 500;
   line-height: 1.8;
   color: #333;
