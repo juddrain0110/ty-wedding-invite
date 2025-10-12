@@ -1,0 +1,112 @@
+.account-container {
+  background-color: #fffefc;
+  padding: 4rem 1.5rem;
+  text-align: center;
+  font-family: 'Noto Serif KR', serif;
+  color: #333;
+}
+
+/* 상단 하트와 제목 */
+.account-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.heart {
+  font-size: 2rem;
+  color: #d44d4d;
+  margin-bottom: 0.3rem;
+}
+
+.account-header h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* 안내문 */
+.account-message {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* 구분선 */
+.account-divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1.5rem auto;
+  width: 80%;
+}
+
+/* 섹션 전체 */
+.account-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* 왼쪽 라벨 */
+.account-label {
+  font-weight: bold;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  color: white;
+  min-width: 60px;
+}
+
+.groom {
+  background-color: #a6d5f5;
+}
+
+.bride {
+  background-color: #f7a3b5;
+}
+
+/* 오른쪽 계좌 리스트 */
+.account-list {
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.account-list p {
+  margin: 0.2rem 0;
+}
+
+/* 계좌번호 클릭 가능 스타일 */
+.account-number {
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  border-bottom: 1px dashed #aaa;
+  transition: color 0.2s ease;
+}
+
+.account-number:hover {
+  color: #d44d4d;
+}
+
+/* 복사 완료 토스트 메시지 */
+.copy-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  animation: fadeOut 1.5s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
