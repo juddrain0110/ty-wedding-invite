@@ -13,7 +13,7 @@ import Thanks from "./Thanks";
 function App() {
   return (
     <div className="app-container">
-      {/* 인트로 섹션 */}
+      {/* 인트로 섹션2 */}
       <section id="intro">
         <Intro />
       </section>
