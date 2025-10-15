@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Gallery.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -21,16 +21,60 @@ const images = [
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [zoom, setZoom] = useState(1);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [dragging, setDragging] = useState(false);
+  const [startDrag, setStartDrag] = useState({ x: 0, y: 0 });
 
-  const openModal = (index) => setCurrentIndex(index);
-  const closeModal = () => setCurrentIndex(null);
+  const openModal = (index) => {
+    setCurrentIndex(index);
+    setZoom(1);
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const closeModal = () => {
+    setCurrentIndex(null);
+    setZoom(1);
+    setPosition({ x: 0, y: 0 });
+  };
+
   const prevImage = (e) => {
     e.stopPropagation();
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    setZoom(1);
+    setPosition({ x: 0, y: 0 });
   };
+
   const nextImage = (e) => {
     e.stopPropagation();
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    setZoom(1);
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const handleWheel = (e) => {
+    e.preventDefault();
+    let newZoom = zoom + (e.deltaY < 0 ? 0.2 : -0.2);
+    newZoom = Math.min(Math.max(newZoom, 1), 5); // 1~5배 줌
+    setZoom(newZoom);
+  };
+
+  const handleMouseDown = (e) => {
+    if (zoom === 1) return;
+    setDragging(true);
+    setStartDrag({ x: e.clientX - position.x, y: e.clientY - position.y });
+  };
+
+  const handleMouseMove = (e) => {
+    if (!dragging) return;
+    setPosition({
+      x: e.clientX - startDrag.x,
+      y: e.clientY - startDrag.y
+    });
+  };
+
+  const handleMouseUp = () => {
+    setDragging(false);
   };
 
   return (
@@ -38,14 +82,13 @@ const Gallery = () => {
       <div className="gallery-content">
         <h2 className="gallery-title">GALLERY</h2>
 
-        {/* 🖥️ PC/Tablet Layout */}
+        {/* 데스크탑 뷰 */}
         <div className="gallery-grid desktop-view">
           <div className="page-one">
             <img src={gallery1} alt="gallery1" className="gallery-image" onClick={() => openModal(0)} />
             <img src={gallery2} alt="gallery2" className="gallery-image" onClick={() => openModal(1)} />
             <img src={gallery3} alt="gallery3" className="gallery-image wide" onClick={() => openModal(2)} />
           </div>
-
           <div className="page-two">
             <img src={gallery4} alt="gallery4" className="gallery-image wide" onClick={() => openModal(3)} />
             <div className="gallery-layout-2">
@@ -56,7 +99,7 @@ const Gallery = () => {
           </div>
         </div>
 
-        {/* 📱 모바일 Swiper 슬라이드 */}
+        {/* 모바일 뷰 */}
         <div className="mobile-view">
           <Swiper
             modules={[Navigation, Pagination]}
@@ -78,12 +121,30 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* 모달 */}
+      {/* 모달 영역 */}
       {currentIndex !== null && (
         <div className="modal-overlay" onClick={closeModal}>
           <button className="nav-button prev" onClick={prevImage}>‹</button>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <img src={images[currentIndex]} alt="Full" className="modal-image" />
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            onWheel={handleWheel}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+          >
+            <img
+              src={images[currentIndex]}
+              alt="Full"
+              className="modal-image"
+              style={{
+                transform: `scale(${zoom}) translate(${position.x / zoom}px, ${position.y / zoom}px)`,
+                cursor: zoom > 1 ? 'grab' : 'zoom-in',
+                transition: dragging ? 'none' : 'transform 0.2s ease'
+              }}
+              draggable={false}
+            />
           </div>
           <button className="nav-button next" onClick={nextImage}>›</button>
         </div>
